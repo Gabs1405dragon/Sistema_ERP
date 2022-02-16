@@ -1,10 +1,13 @@
 <?php
 session_start();
-if($_SESSION['login']){
-    header('Location: home.php');
+
+if(!isset($_SESSION['login'])){
+    include('login.php');
 }else{
-    header('Location: login.php');
+    include('home.php');
 }
+
+
 
 
 
