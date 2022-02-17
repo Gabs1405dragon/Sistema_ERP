@@ -3,6 +3,8 @@ sleep(1);
 if(!isset($_SESSION['login'])){
 header('location: index.php');
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
@@ -18,8 +20,9 @@ header('location: index.php');
 <div class="padding">
 <div class="box__people"></div><!--box__people-->
     <div class="nome__usuario">
+        
         <h2><?php echo $_SESSION['nome']; ?></h2>
-        <p><?php echo $_SESSION['cargo']; ?></p>
+        <p> <?php echo $_SESSION['cargo']; ?></p>
     </div><!--nome__usuario-->
 </div><!--padding-->
     <div class="menu__items">
