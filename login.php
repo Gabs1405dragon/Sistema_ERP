@@ -31,6 +31,7 @@ $mysql = new MySql();
                     $dados = $sql->fetch();
                     $_SESSION['login'] = $email;
                     $_SESSION['nome'] = $dados['nome'];
+                    $_SESSION['cargo'] = $dados['cargos'];
                     header('location: home.php');
                     die();
                 }else{

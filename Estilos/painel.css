@@ -1,0 +1,93 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.clear{
+    clear: both;
+}
+html,body{
+    height: 100%;
+}
+aside.painel__left{
+    float: left;
+    width: 300px;
+    background-color: #004d40;
+    height: 100%;
+   
+    position: fixed;
+    
+}
+.padding{
+    padding: 10px;
+}
+section.painel__right{
+float: left;
+width: calc(100% - 300px);
+background-color: #212121;
+min-height: 100%;
+position: relative;
+left: 300px;
+}
+.box__people{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: #00838f;
+    margin: 0 auto;
+}
+.nome__usuario{
+    text-align: center;
+    margin-top: 10px;
+    color: #f1f1f1;
+}
+header{
+    padding: 10px 20px;
+    width: 100%;
+    background-color: #00838f;
+}
+.sair{
+    float: right;
+}
+.sair a{color: rgb(255, 255, 255);text-decoration: none;}
+.sair p{display: inline;
+     margin-right: 20px;
+     background-color: #009178;
+     padding: 10px 10px;
+     color: white;
+     font-weight: bold;}
+     .box__wrap{
+         padding: 20px;
+         margin-bottom: 10px;
+     }
+     .box__content{
+         padding: 10px;
+         background: white;
+         border-radius: 10px;
+     }
+     .w50{
+         width: 50%;
+         float: left;
+     }
+     .w33{width: 33.3%;float: left;}
+     .w100{width: 100%;}
+.menu__items{
+    margin-top: 20px;
+}
+.item__principal{
+    background-color: #00838f;
+    color: white;
+    padding: 10px;
+    font-size: 20px;
+}
+.menu__items li{list-style-type: none;}  
+.item__select{
+    padding: 10px;
+    display: inline-block;
+    text-decoration: none;
+     color: white;
+     font-size: 18px;
+     border-bottom: 1px solid #00838f;
+     width: 100%;
+}  
+.item__select li{margin-top: 10px;} 
