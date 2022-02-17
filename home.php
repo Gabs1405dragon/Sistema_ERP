@@ -34,6 +34,7 @@ header('location: index.php');
         <li><a class="item__select" href="">Adicionar Usuário!</a></li>
         <li class="item__principal" >Configuração Geral</li>
         <li><a class="item__select" href="">Editar Site!</a></li>
+        
     </div><!--menu__items-->
 
     </aside>
