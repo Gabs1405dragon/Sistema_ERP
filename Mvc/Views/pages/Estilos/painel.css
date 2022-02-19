@@ -21,6 +21,14 @@ aside.painel__left{
 .padding{
     padding: 10px;
 }
+.menu_btn{
+    float: left;
+    color: white;
+}
+.menu_btn svg {
+    font-size: 20px ;
+    cursor: pointer;
+}
 section.painel__right{
 float: left;
 width: calc(100% - 300px);
@@ -28,6 +36,14 @@ background-color: #212121;
 min-height: 100%;
 position: relative;
 left: 300px;
+}
+.box__painel__right{
+    float: left;
+    width: calc(100% - 300px);
+    background-color: #212121;
+    position: relative;
+    left: 300px;
+    
 }
 .box__people{
     width: 140px;
@@ -41,9 +57,9 @@ left: 300px;
     margin-top: 10px;
     color: #f1f1f1;
 }
-header{
+header.header{
     padding: 10px 20px;
-    width: 100%;
+    width: calc(100%-300px);
     background-color: #00838f;
 }
 .sair{
@@ -52,8 +68,8 @@ header{
 .sair a{color: rgb(255, 255, 255);text-decoration: none;}
 .sair p{display: inline;
      margin-right: 20px;
-     background-color: #009178;
-     padding: 10px 10px;
+     
+     padding: 10px 20px;
      color: white;
      font-weight: bold;}
      .box__wrap{
@@ -80,6 +96,9 @@ header{
     padding: 10px;
     font-size: 20px;
 }
+.menu-active{
+    background-color: #01579b;
+}
 .menu__items li{list-style-type: none;}  
 .item__select{
     padding: 10px;
@@ -91,3 +110,60 @@ header{
      width: 100%;
 }  
 .item__select li{margin-top: 10px;} 
+.box__wrap h2{
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+}
+.wrap__input{
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wrap__input input[type=text],.wrap__input input[type=email],.wrap__input input[type=password],.wrap__input select{
+    width: 100%;
+    padding: 10px;
+    box-shadow: 5px 5px rgba(20, 20, 20, 0.2);
+    border:  2px solid black;
+    border-radius: 10px;
+    outline: none;
+}
+.wrap__input textarea{
+    width: 100%;
+    padding: 10px ;
+    border: 2px solid black;
+    min-height: 200px;
+    resize: none;
+    box-shadow: 5px 5px rgba(20, 20, 20, 0.2);
+    border-radius: 10px;
+}
+.wrap__input input[type=submit]{
+    width: auto;
+    padding: 10px;
+    background-color: #00838f;
+    color: white;
+    border:  2px solid black;
+    margin: 0 auto;
+    cursor: pointer;
+    box-shadow: 5px 5px rgba(20, 20, 20, 0.2);
+
+}
+.table__wrap{
+   background-color: #01579b;
+   padding: 10px;
+   border-radius: 10px;
+
+}
+.table__wrap table{
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+.table__wrap tbody{
+    background-color: white;
+border: 1px solid black;
+}
+
+@media screen and (max-width: 768px){
+   
+}

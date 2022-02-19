@@ -63,7 +63,7 @@ section.form__login{
     text-align: center;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 10px;
+  
     color: white;
 }
 .success{
@@ -71,6 +71,6 @@ section.form__login{
     text-align: center;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 10px;
+  
     color: white;
 }
