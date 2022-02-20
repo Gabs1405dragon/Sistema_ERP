@@ -17,7 +17,13 @@
                 <li <?php \Models\HomeModel::selecionandoMenu('editar_usuario'); ?> ><a class="item__select" href="editar_usuario">Editar Usuário!</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('adicionar_usuarios'); ?> ><a class="item__select" href="adicionar_usuarios">Adicionar Usuário!</a></li>
                 <li class="item__principal" >Configuração Geral</li>
-                <li><a class="item__select" href="">Editar Site!</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('Editar_site'); ?> ><a class="item__select" href="Editar_site">Editar Site!</a></li>
+                <li class="item__principal" >Gestão de noticias!</li>
+                <li <?php \Models\HomeModel::selecionandoMenu('cadastrar_categorias'); ?> ><a class="item__select" href="cadastrar_categorias">Cadastrar categorias!</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_categorias'); ?> ><a class="item__select" href="gerenciar_categorias">Gerenciar categorias!</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('cadastrar_noticias'); ?> ><a class="item__select" href="cadastrar_noticias">Cadastrar noticias!</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_noticias'); ?> ><a class="item__select" href="gerenciar_noticias">Gerenciar noticias!</a></li>
+
                 
             </div><!--menu__items-->
 

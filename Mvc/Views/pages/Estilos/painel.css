@@ -163,7 +163,28 @@ header.header{
     background-color: white;
 border: 1px solid black;
 }
-
+.paginacao{
+    background-color: #004d40;
+    display: block;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.paginacao a{
+    padding: 10px;
+    background-color: #01579b;
+    color: white;
+    text-decoration: none;
+    margin-right: 10px;
+}
+.paginacao .active{
+    background-color: #00838f;
+}
+.paginacao a:hover{
+    background-color: #00838f;
+}
 @media screen and (max-width: 768px){
    
 }
