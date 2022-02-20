@@ -12,8 +12,8 @@
                <thead>
                    <tr>
                        <td>Categoria</td>
-                       <td>Data</td>
-                       <td>*</td>
+                       
+                       <td>Deletar</td>
                       
                    </tr>
                </thead>
@@ -25,8 +25,8 @@
                    <tr>
                       
                        <td><?php echo $value['nome']; ?></td>
-                       <td><a href="edit_categoria?id=<?php echo $value['id']; ?>" >Editar</a></td>
-                       <td><a href="gerenciar_categorias?excluirr=<?php echo $value['id']; ?>" >Deletar</a></td>
+                       
+                       <td><a href="gerenciar_categorias?excluirr=<?php echo $value['id']; ?>" ><span class="trash" ><i class="fa-solid fa-trash-can"></i></span></a></td>
                    </tr>
                    <?php } ?>
                </tbody>

@@ -76,6 +76,13 @@ class HomeModel{
         $sql->execute(array($categoria_id,$titulo,$noticia,$data,$slug,$order_id));
     }
 
+    public static function updateSite($titulo,$nome_author,$descricao,$titulo_icon1,$titulo_icon2,$icon1,$descricao1,$icon2,$descricao2,$titulo_icon3,$icon3,$descricao3){
+        $sql = \MySql::connect()->prepare("DELETE FROM `config` ");
+        $sql->execute();
+        $sql = \MySql::connect()->prepare("INSERT INTO `config` VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+        $sql->execute(array($titulo,$nome_author,$descricao,$titulo_icon1,$titulo_icon2,$icon1,$descricao1,$icon2,$descricao2,$titulo_icon3,$icon3,$descricao3));
+    }
+
     public static function selectAll($tabela,$start = null,$end = null){
         $sql = \MySql::connect();
         if($start == null && $end == null){
@@ -114,6 +121,77 @@ class HomeModel{
     public static function insertNoticias($categoria_id,$titulo,$noticia,$data,$slug,$order_id){
         $sql = \MySql::connect()->prepare("INSERT INTO `noticias` (`id`, `categoria_id`, `titulo`, `conteudo`, `data`, `slug`, `order_id`) VALUES (null,?,?,?,?,?,?) ");
         $sql->execute(array($categoria_id,$titulo,$noticia,$data,$slug,$order_id));
+    }
+
+
+
+    //usuarios onlines
+
+    public static function updateUsuarioOnline(){
+        $pdo = \MySql::connect();
+        if(isset($_SESSION['online'])){
+            $token = $_SESSION['online'];
+            $horarioAtual = date('Y-m-d H:i:s');
+            $check = $pdo->prepare("SELECT `id` FROM `online` WHERE token = ?");
+            $check->execute(array($_SESSION['online']));
+
+            if($check->rowCount() == 1){
+                $sql = $pdo->prepare("UPDATE `online` SET ultima_acao = ? WHERE token = ? ");
+                $sql->execute(array($horarioAtual,$token));
+            }else{
+                if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            }else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            }else{
+                $ip = $_SERVER['REMOTE_ADDR'];
+            };
+               
+                $token = $_SESSION['online'];
+                $horarioAtual = date('Y-m-d H:i:s');
+                $sql = $pdo->prepare("INSERT INTO `online` VALUES (null,?,?,?) ");
+                $sql->execute(array($ip,$horarioAtual,$token));
+            }
+
+        }else{
+            $_SESSION['online'] = uniqid();
+            if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            }else if(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            }else{
+                $ip = $_SERVER['REMOTE_ADDR'];
+            };
+           
+            $token = $_SESSION['online'];
+            $horarioAtual = date('Y-m-d H:i:s');
+            $sql = $pdo->prepare("INSERT INTO `online` VALUES (null,?,?,?)");
+            $sql->execute(array($ip,$horarioAtual,$token));
+        }
+    }
+
+    public static function limparUsuariosOnline(){
+        $pdo = \MySql::connect();
+        $date = date('Y-m-d H:i:s');
+        $sql = $pdo->prepare("DELETE FROM `online` WHERE ultimo_acao < '$date' - INTERVAL 1 MINUTE");
+        return $sql->execute();
+    }
+
+    public static function listarUsuariosOnline(){
+        $pdo = \MySql::connect();
+        self::limparUsuariosOnline();
+        $sql = $pdo->prepare("SELECT * FROM `online` ");
+        $sql->execute();
+        return $sql->fetchAll();
+    }
+
+    public static function contador(){
+        $pdo = \MySql::connect();
+        if(!isset($_COOKIE['visita'])){
+            setcookie('visita',true,time() + (60*60/24*7));
+            $sql = $pdo->prepare("INSERT INTO `visitas` VALUES (null,?,?)");
+            $sql->execute(array($_SERVER['REMOTE_ADDR'],date('Y-m-d')));            
+        }
     }
 /*
     public static function insertCategoria($arr){

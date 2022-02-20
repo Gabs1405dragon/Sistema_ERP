@@ -80,6 +80,7 @@ header.header{
          padding: 10px;
          background: white;
          border-radius: 10px;
+         margin-bottom: 25px;
      }
      .w50{
          width: 50%;
@@ -185,6 +186,43 @@ border: 1px solid black;
 .paginacao a:hover{
     background-color: #00838f;
 }
+.green{
+    background-color: #69f0ae ;
+}
+.orange{
+    background-color: #e65100;
+}
+.blue{
+    background-color: #01579b;
+}
+.box__online{
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgba(20,20,20,0.7);
+}
+.wrap__table2{
+    
+    box-shadow:  5px 5px 5px rgba(20,20,20,0.7);
+    background-color: #ffffff;
+    border: 2px solid black;
+}
+.wrap__table2 thead{background-color: #e65100;color: white;padding: 10px;}
+.wrap__table2 table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.wrap__table2,.table__wrap a{
+    text-decoration: none;
+}
+.trash{
+    color: rgb(255, 43, 43);
+}
+.edit{
+    color: #004d40;
+}
 @media screen and (max-width: 768px){
-   
+   .w33,.w50{
+       width: 100%;
+   }
 }

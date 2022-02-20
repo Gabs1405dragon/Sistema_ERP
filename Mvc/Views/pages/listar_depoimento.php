@@ -13,8 +13,8 @@
                    <tr>
                        <td>Nome</td>
                        <td>Data</td>
-                       <td>*</td>
-                       <td>*</td>
+                       <td>Editar</td>
+                       <td>Deletar</td>
                    </tr>
                </thead>
                <tbody>
@@ -25,8 +25,8 @@
                    <tr>
                        <td><?php echo $value['nome'];?></td>
                        <td><?php echo $value['date']; ?></td>
-                       <td><a href="edit_depoimento?id=<?php echo $value['id']; ?>" >Editar</a></td>
-                       <td><a href="listar_depoimento?excluirr=<?php echo $value['id']; ?>" >Deletar</a></td>
+                       <td><a href="edit_depoimento?id=<?php echo $value['id']; ?>" ><span class="edit"><i class="fa-solid fa-pen"></i><span></a></td>
+                       <td><a href="listar_depoimento?excluirr=<?php echo $value['id']; ?>" ><span class="trash" ><i class="fa-solid fa-trash-can"></i></span></a></td>
                    </tr>
                    <?php } ?>
                </tbody>

@@ -13,8 +13,8 @@
                    <tr>
                        <td>id</td>
                        <td>Serviços</td>
-                       <td>*</td>
-                       <td>*</td>
+                       <td>Editar</td>
+                       <td>Deletar</td>
                    </tr>
                </thead>
                <tbody>
@@ -25,8 +25,8 @@
                    <tr>
                        <td><?php echo $value['id'];?></td>
                        <td><?php echo $value['servicos']; ?></td>
-                       <td><a href="edit_servicos?id=<?php echo $value['id']; ?>" >Editar</a></td>
-                       <td><a href="listar_servicos?excluirr=<?php echo $value['id']; ?>" >Deletar</a></td>
+                       <td><a href="edit_servicos?id=<?php echo $value['id']; ?>" ><span class="edit"><i class="fa-solid fa-pen"></i><span></a></td>
+                       <td><a href="listar_servicos?excluirr=<?php echo $value['id']; ?>" ><span class="trash" ><i class="fa-solid fa-trash-can"></i></span></a></td>
                    </tr>
                    <?php } ?>
                </tbody>

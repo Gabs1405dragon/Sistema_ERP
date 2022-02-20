@@ -13,6 +13,10 @@ class HomeController{
             header('location: login');
             
         }else{
+            if(isset($_GET['excluirr'])){
+                $idExcluir = intval($_GET['excluirr']);
+                \Models\HomeModel::deletar('usuarios',$idExcluir);
+            }
                    $this->view->render(array('titulo'=>'Home do Sistema!'));
             
         }
