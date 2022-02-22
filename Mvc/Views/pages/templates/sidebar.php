@@ -23,6 +23,9 @@
                 <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_categorias'); ?> ><a class="item__select" href="gerenciar_categorias">Gerenciar categorias!</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('cadastrar_noticias'); ?> ><a class="item__select" href="cadastrar_noticias">Cadastrar noticias!</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_noticias'); ?> ><a class="item__select" href="gerenciar_noticias">Gerenciar noticias!</a></li>
+                <li class="item__principal" >Gestão de clientes</li>
+                <li <?php \Models\HomeModel::selecionandoMenu('cadastrar_clientes'); ?> ><a class="item__select" href="cadastrar_clientes">Cadastrar clientes</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_clientes'); ?> ><a class="item__select" href="gerenciar_clientes">Gerenciar clientes</a></li>
 
                 
             </div><!--menu__items-->

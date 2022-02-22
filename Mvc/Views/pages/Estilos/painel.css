@@ -121,7 +121,7 @@ header.header{
     font-family: 'Courier New', Courier, monospace;
 }
 
-.wrap__input input[type=text],.wrap__input input[type=email],.wrap__input input[type=password],.wrap__input select{
+.wrap__input input[type=text],.wrap__input input[type=email],.wrap__input input[type=password],.wrap__input select,.wrap__input input[type=file]{
     width: 100%;
     padding: 10px;
     box-shadow: 5px 5px rgba(20, 20, 20, 0.2);

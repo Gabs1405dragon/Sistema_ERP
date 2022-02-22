@@ -6,6 +6,9 @@
     echo '<div class="erro" >Você precisa passar o parametro ID</div>';
     die();
 }
+$sql = \MySql::connect()->prepare("SELECT * FROM `servicos` WHERE id = ? ");
+$sql->execute(array($_GET['id']));
+$servicos = $sql->fetch();
 ?>
 <section class="painel__right">
     <div class="box__wrap">

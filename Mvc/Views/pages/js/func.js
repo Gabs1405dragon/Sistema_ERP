@@ -40,6 +40,19 @@ $(()=>{
             $('section.painel__right').css('width','calc(100% - 300px)').css('left','300px');
         }
     })
-
+    
     $('[formato=data]').mask('99/99/9999');
-})
+    $('[formato=cpf]').mask('000.000.000-00', {reverse: true});
+    $('[formato=cnpj]').mask('00.000.000/0000-00', {reverse: true});
+
+    $('[name=pessoa_cliente]').change(function(){
+        var valor = $(this).val();
+        if(valor == 'fisico' ){
+            $('[name=cpf]').parent().show();
+            $('[name=cnpj]').parent().hide();
+        }else{
+            $('[name=cpf]').parent().hide();
+            $('[name=cnpj]').parent().show();
+        }
+    });
+});

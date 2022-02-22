@@ -1,6 +1,6 @@
 <?php  
 define("PATH_FULL","http://localhost/teste/git/Mvc/Views/pages");
-define("PATH_STATIC",'http://localhost/teste/git/Mvc/Views/');
+
 
 class Aplication{
     public static function Execute(){

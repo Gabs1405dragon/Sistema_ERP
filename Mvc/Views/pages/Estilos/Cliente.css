@@ -1,0 +1,56 @@
+.cliente__wraper{
+    float: left;
+    width: 33.3%;
+    padding: 20px;
+
+}
+.cliente__box{
+    background-color: rgb(236, 236, 236);
+    min-height: 300px;
+    width: 100%;
+    border: 2px solid black;
+    
+}
+.circle__cliente img{
+    width: 100%;
+
+    display: block;
+}
+.circle__cliente{
+   padding: 40px;
+   text-align: center;
+}
+.circle__cliente span{
+    font-size: 80px;
+    color: rgb(76, 161, 59);
+}
+.head__cliente{
+    background-color: rgb(255, 255, 255);
+    min-height: 100px;
+    border-bottom: 2px solid black;
+}
+.body__cliente p{
+    display: inline-block;
+    font-size: 16px;
+}
+.body__cliente h4{
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 20px;
+}
+.body__cliente{
+    padding: 10px;
+}
+.box__crud{
+    padding: 5px 10px;
+    border: 1px solid black;
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+    display: inline-block;
+}
+@media screen and (max-width: 1024px){
+    .cliente__wraper{
+        width: 100%;
+    }
+}

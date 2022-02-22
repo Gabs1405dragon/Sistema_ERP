@@ -2,6 +2,32 @@
 namespace Models;
 
 class HomeModel{
+
+    public static function imageValida($imagem){
+        if($imagem['type'] == 'image/jpeg' || $imagem['type'] == 'image/jpg' || $imagem['type'] == 'image/png'){
+            $tamanho = intval($imagem['size']/1024);
+            if($tamanho < 300)
+                return true;
+            else
+                return false;
+            
+        }
+    }
+
+    public static function uploadFile($file){
+        $formatoArquivo = explode('.',$file['name']);
+        $imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
+        if(move_uploaded_file($file['tmp_name'],'http://localhost/teste/git/Mvc/Views/pages/uploads/'.$imagemNome)){
+            return $file['name'];
+        }else{
+            return false;
+        }
+    }
+
+    public static function logado(){
+        return isset($_SESSION['login']) ? true : false;
+    }
+
     public static function selecionandoMenu($par){
         $url = explode('/',@$_GET['url'])[0];
         if($url == $par)
@@ -66,8 +92,8 @@ class HomeModel{
         $sql->execute(array($servico));
     }
 
-    public static function updateCategoria($nome,$slug,$order_id){
-        $sql = \MySql::connect()->prepare("UPDATE `categoria` SET nome = ? ,slug = ? WHERE order_id = ?");
+    public static function updateCategoria($nome,$slug,$order_id,$id){
+        $sql = \MySql::connect()->prepare("UPDATE `categoria` SET nome = ? ,slug = ? , order_id = ? WHERE `categoria`.`id` = $id");
         $sql->execute(array($nome,$slug,$order_id));
     }
 
@@ -81,6 +107,11 @@ class HomeModel{
         $sql->execute();
         $sql = \MySql::connect()->prepare("INSERT INTO `config` VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
         $sql->execute(array($titulo,$nome_author,$descricao,$titulo_icon1,$titulo_icon2,$icon1,$descricao1,$icon2,$descricao2,$titulo_icon3,$icon3,$descricao3));
+    }
+
+    public static function upadateClientes($nome,$email,$tipo,$cpf,$imagem,$id){
+        $sql = \MySql::connect()->prepare("UPDATE `clientes` SET  nome = '$nome' ,email = '$email' ,tipo = '$tipo' ,cpf_cnpj = '$cpf' , imagem = '$imagem' WHERE `clientes`.`id` = $id");
+        $sql->execute();
     }
 
     public static function selectAll($tabela,$start = null,$end = null){

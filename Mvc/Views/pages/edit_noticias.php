@@ -6,6 +6,10 @@
     echo '<div class="erro" >Você precisa passar o parametro ID</div>';
     die();
 }
+
+$sql = \MySql::connect()->prepare("SELECT * FROM `noticias` WHERE id = ? ");
+$sql->execute(array($_GET['id']));
+$noticia = $sql->fetch();
 ?>
 <section class="painel__right">
     <div class="box__wrap">
@@ -26,17 +30,17 @@
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <label for="">Titulo da sua notícia:</label>
-                   <input type="text" name="titulo">
+                   <input type="text" value="<?php echo $noticia['titulo'] ?>" name="titulo">
                </div><!--wrap__input-->
 
                <div class="wrap__input">
                    <label for="">Notícia completa!:</label>
-                   <textarea class="tinymce" name="noticia"></textarea>
+                   <textarea class="tinymce" name="noticia"><?php echo $noticia['conteudo'] ?></textarea>
                </div><!--wrap__input-->
 
                <div class="wrap__input">
                    <label for="">Data da notícia:</label>
-                   <input formato="data" type="text" name="data" >
+                   <input formato="data" type="text" value="<?php echo $noticia['data'] ?>" name="data" >
                </div><!--wrap__input-->
 
                <div class="wrap__input">

@@ -58,7 +58,7 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
                             <?php foreach($listarUsuarios as $key => $value){ ?>
                             <tr>
                                 <td><?php echo $value['ip']; ?></td>
-                                <td><?php echo $date('d/m/Y H:i:s'.strtotime($value['ultimo_acao'])) ?></td>
+                                <td><?php echo date('d/m/Y H:i:s',strtotime($value['ultimo_acao'])); ?></td>
                             </tr>
                             <?php } ?>
                         </tbody>

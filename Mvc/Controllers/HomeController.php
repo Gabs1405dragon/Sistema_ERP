@@ -15,6 +15,7 @@ class HomeController{
         }else{
             if(isset($_GET['excluirr'])){
                 $idExcluir = intval($_GET['excluirr']);
+                setcookie('visita',true,time() - (60*60/24*7));
                 \Models\HomeModel::deletar('usuarios',$idExcluir);
             }
                    $this->view->render(array('titulo'=>'Home do Sistema!'));
