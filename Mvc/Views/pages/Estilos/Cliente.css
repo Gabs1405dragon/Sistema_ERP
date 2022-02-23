@@ -6,9 +6,10 @@
 }
 .cliente__box{
     background-color: rgb(236, 236, 236);
-    min-height: 300px;
+    min-height: 550px;
     width: 100%;
     border: 2px solid black;
+    overflow-y: auto;
     
 }
 .circle__cliente img{
@@ -48,6 +49,26 @@
     color: white;
     margin-top: 10px;
     display: inline-block;
+}
+.box__search{
+    background-color: #00695c;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    
+}
+.box__search h2{
+    color: white;
+    font-weight: lighter;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+.btn{
+    padding: 5px 10px;
+  
+    color: white;
 }
 @media screen and (max-width: 1024px){
     .cliente__wraper{

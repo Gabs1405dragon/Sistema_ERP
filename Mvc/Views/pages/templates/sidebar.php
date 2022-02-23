@@ -26,6 +26,8 @@
                 <li class="item__principal" >Gestão de clientes</li>
                 <li <?php \Models\HomeModel::selecionandoMenu('cadastrar_clientes'); ?> ><a class="item__select" href="cadastrar_clientes">Cadastrar clientes</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_clientes'); ?> ><a class="item__select" href="gerenciar_clientes">Gerenciar clientes</a></li>
+                <li class="item__principal" >Controler finâceiro</li>
+                <li <?php \Models\HomeModel::selecionandoMenu('visualizar_pagamento'); ?> ><a class="item__select" href="visualizar_pagamento">Visualizar pagamento</a></li>
 
                 
             </div><!--menu__items-->

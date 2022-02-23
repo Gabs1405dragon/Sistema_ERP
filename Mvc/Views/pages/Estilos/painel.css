@@ -110,6 +110,9 @@ header.header{
      border-bottom: 1px solid #00838f;
      width: 100%;
 }  
+.item__select:hover{
+    background-color: #01579b;
+}
 .item__select li{margin-top: 10px;} 
 .box__wrap h2{
     margin-bottom: 20px;
@@ -152,8 +155,11 @@ header.header{
 .table__wrap{
    background-color: #01579b;
    padding: 10px;
-   border-radius: 10px;
+   margin-bottom: 30px;
 
+} 
+.table__wrap td,.wrap__table2 td{
+    padding: 6px 2px;
 }
 .table__wrap table{
     width: 100%;
@@ -217,6 +223,11 @@ border: 1px solid black;
 }
 .trash{
     color: rgb(255, 43, 43);
+}
+.boxstyle{
+    padding: 5px 10px;
+    background-color: #6888a0;
+    
 }
 .edit{
     color: #004d40;

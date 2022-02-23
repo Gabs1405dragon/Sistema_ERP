@@ -44,6 +44,9 @@ $(()=>{
     $('[formato=data]').mask('99/99/9999');
     $('[formato=cpf]').mask('000.000.000-00', {reverse: true});
     $('[formato=cnpj]').mask('00.000.000/0000-00', {reverse: true});
+    $('[formato=money]').maskMoney({prefix:'R$ ',allowNegative:true,thousands:'.',decimal:',',affixesStay:false});
+    $('input.datepicker').Zebra_DatePicker();
+    $('[formato=parcelas]').mask('99');
 
     $('[name=pessoa_cliente]').change(function(){
         var valor = $(this).val();

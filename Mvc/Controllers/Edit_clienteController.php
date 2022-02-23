@@ -13,16 +13,16 @@ class Edit_clienteController{
                 $nome = $_POST['nome'];
                 $email = $_POST['email'];
                 $tipo = $_POST['pessoa_cliente'];
-                $cpf = $_POST['cpf'];
-                $cnpj = $_POST['cnpj'];
+               
                 $imagem = $_FILES['imagem'];
                 $imagem = '';
                 if(empty($nome) || empty($email) ){
                     echo '<div class="erro" >Preenchar todos os campos!</div>';
                 }else{
-                   $dados = $cpf == 'fisico' ? $cpf : $cnpj;
+                   $dados = $tipo != 'fisico' ?  $_POST['cnpj'] :  $_POST['cpf'];
+                
                    \Models\HomeModel::upadateClientes($nome,$email,$tipo,$dados,$imagem,$id);
-                   header('location: gerenciar_clientes');
+                   //header('location: gerenciar_clientes');
                 }
             }
             $this->view->render(array('titulo'=>'altera a configuração do cliente!'));

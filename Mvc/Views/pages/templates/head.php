@@ -20,5 +20,6 @@ if(isset($_GET['excluir'])){
     <link rel="stylesheet" href="<?php echo PATH_FULL ?>/Estilos/all.min.css" >
     <link rel="stylesheet" href="<?php echo PATH_FULL ?>/Estilos/all.css" />
     <link rel="stylesheet" href="<?php echo PATH_FULL ?>/estilos/Cliente.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_datepicker@latest/dist/css/default/zebra_datepicker.min.css">
 </head>
 <body>

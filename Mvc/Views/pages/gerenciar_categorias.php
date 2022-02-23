@@ -14,7 +14,7 @@
                        <td>Categoria</td>
                        
                        <td>Deletar</td>
-                      
+                      <td>Editar</td>
                    </tr>
                </thead>
                <tbody>
@@ -25,8 +25,8 @@
                    <tr>
                       
                        <td><?php echo $value['nome']; ?></td>
-                       <td><a href="edit_categoria?id=<?php echo $value['id']; ?>" ><span class="edit"><i class="fa-solid fa-pen"></i><span></a></td>
-                       <td><a href="gerenciar_categoria?excluirr=<?php echo $value['id']; ?>" ><span class="trash" ><i class="fa-solid fa-trash-can"></i></span></a></td>
+                       <td><a class="boxstyle" href="edit_categoria?id=<?php echo $value['id']; ?>" ><span class="edit"><i class="fa-solid fa-pen"></i><span></a></td>
+                       <td><a class="boxstyle" href="gerenciar_categoria?excluirr=<?php echo $value['id']; ?>" ><span class="trash" ><i class="fa-solid fa-trash-can"></i></span></a></td>
                    </tr>
                    <?php } ?>
                </tbody>
