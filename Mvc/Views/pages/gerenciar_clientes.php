@@ -49,7 +49,7 @@
                         <h4><i class="fa-solid fa-file-signature"></i> <?php if($value['tipo'] == 'fisico'){echo 'CPF: ';}else{echo 'CNPJ: ';}?></h4><p> <?php echo $value['cpf_cnpj']; ?></p>
                         <div class=""></div>
                         <a class="box__crud green" href="edit_cliente?id=<?php echo $value['id']; ?>">Editar</a>
-                        <a class="box__crud orange " href="gerenciar_clientes?excluirr=<?php echo $value['id']; ?>">Excluir</a>
+                        <a class="box__crud orange " href="delete?id=<?php echo $value['id']; ?>">Excluir</a>
                     </div><!--body__cliente-->
                 </div><!--cliente__box-->
            </div><!--cliente__wraper-->

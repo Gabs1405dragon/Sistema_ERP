@@ -19,10 +19,11 @@ class MainView{
 
     public function render($arr = []){
         include('pages/templates/'.$this->head.'.php');
-        if(isset($_SESSION['login'])){
+        if(isset($_SESSION['login'])){ 
         include('pages/templates/'.$this->sidebar.'.php');
         include('pages/templates/'.$this->header.'.php');
-        }
+        
+    }
         
         
         include('pages/'.$this->fileName.'.php');

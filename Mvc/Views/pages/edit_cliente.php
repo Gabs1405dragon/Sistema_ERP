@@ -138,7 +138,7 @@ $clientes = $sql->fetch();
                </thead>
                <tbody>
                    <?php 
-                   $sql = \MySql::connect()->prepare("SELECT * FROM `financeiro` WHERE status = 0 ORDER BY vencimento ASC");
+                   $sql = \MySql::connect()->prepare("SELECT * FROM `financeiro` WHERE status = 0 AND cliente_id = '$id' ORDER BY vencimento ASC");
                    $sql->execute();
                    $pendentes = $sql->fetchAll();
                    foreach($pendentes as $key => $value){
@@ -178,7 +178,7 @@ $clientes = $sql->fetch();
                </thead>
                <tbody>
                    <?php 
-                   $sql = \MySql::connect()->prepare("SELECT * FROM `financeiro` WHERE status = 1 ORDER BY vencimento ASC LIMIT 10");
+                   $sql = \MySql::connect()->prepare("SELECT * FROM `financeiro` WHERE status = 1 AND cliente_id = '$id' ORDER BY vencimento ASC LIMIT 10");
                    $sql->execute();
                    $pendentes = $sql->fetchAll();
                    foreach($pendentes as $key => $value){

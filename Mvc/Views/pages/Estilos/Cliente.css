@@ -70,6 +70,18 @@ label{
   
     color: white;
 }
+.gera_pdf{
+    display: inline-block;
+    margin: 10px 0;
+    background-color: orangered;
+    padding: 6px;
+    border: 1px solid black;
+}
+.gera_pdf a{
+    color: white;
+    padding: 8px 10px;
+    text-decoration: none;
+}
 @media screen and (max-width: 1024px){
     .cliente__wraper{
         width: 100%;

@@ -1,17 +1,17 @@
-<?php  
+<?php 
 namespace Controllers;
-class visualizar_pagamentoController{
+class DeleteController{
     private $view;
+
     public function __construct(){
-        $this->view = new \Views\MainView('visualizar_pagamento');
+        $this->view = new \Views\MainView('delete');
     }
 
     public function index(){
         if(isset($_SESSION['login'])){
-            $this->view->render(array('titulo'=>'Pagamentos!'));
+            $this->view->render(array('titulo'=>'..'));
         }else{
             header('location: login');
         }
-        
     }
 }

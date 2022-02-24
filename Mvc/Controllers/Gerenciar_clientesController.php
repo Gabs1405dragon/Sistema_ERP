@@ -11,6 +11,7 @@ class gerenciar_clientesController{
             if(isset($_GET['excluirr'])){
                 $idExcluir = intval($_GET['excluirr']);
                 \Models\HomeModel::deletar('clientes',$idExcluir);
+              
             }
             $this->view->render(array('titulo'=>'gerencie os seus clientes!'));
         }else{

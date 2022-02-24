@@ -31,6 +31,8 @@ class Editar_siteController{
     public function index(){
         if(isset($_SESSION['login'])){
             $this->view->render(array('titulo'=>'Pagina para editar o site'));
+        }else{
+            header('location: login');
         }
     }
 }
