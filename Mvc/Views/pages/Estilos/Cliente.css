@@ -82,8 +82,12 @@ label{
     padding: 8px 10px;
     text-decoration: none;
 }
+.box__content a{
+    color: black;
+}
+
 @media screen and (max-width: 1024px){
-    .cliente__wraper{
+    .cliente__wraper,.w70,.w30{
         width: 100%;
     }
 }

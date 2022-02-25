@@ -6,6 +6,18 @@
 .clear{
     clear: both;
 }
+.alerta{
+    background-color: orangered;
+    padding: 10px;
+    text-align: center;
+margin-top: 20px;
+border-radius: 10px;
+color: white;
+}
+.alerta  a{
+    color: white;
+    font-weight: bold;
+}
 html,body{
     height: 100%;
 }

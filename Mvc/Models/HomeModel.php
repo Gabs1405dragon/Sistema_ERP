@@ -6,19 +6,21 @@ class HomeModel{
     public static function imageValida($imagem){
         if($imagem['type'] == 'image/jpeg' || $imagem['type'] == 'image/jpg' || $imagem['type'] == 'image/png'){
             $tamanho = intval($imagem['size']/1024);
-            if($tamanho < 300)
+            if($tamanho < 900)
                 return true;
             else
                 return false;
             
+        }else{
+            return false;
         }
     }
 
     public static function uploadFile($file){
         $formatoArquivo = explode('.',$file['name']);
         $imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
-        if(move_uploaded_file($file['tmp_name'],'http://localhost/teste/git/Mvc/Views/pages/uploads/'.$imagemNome)){
-            return $file['name'];
+        if(move_uploaded_file($file['tmp_name'],PATH_FULL.'/uploads/'.$imagemNome)){
+            return $imagemNome;
         }else{
             return false;
         }

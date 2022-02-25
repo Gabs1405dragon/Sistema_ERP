@@ -1,0 +1,33 @@
+.cliente__box > .input__produto{
+    border-bottom: 3px solid rgb(112, 112, 112);
+    padding: 13px 5px;
+    margin-bottom: 10px;
+}
+.cliente__box > .w70{
+    width: 70%;
+    float: left;
+}
+.cliente__box .produto__img img{
+    width: 100%;
+}
+.cliente__box .w30{
+    width: 30%;
+    float: left;
+}
+.input__produto input[type=number]{
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+}
+.input__produto h5{
+    font-size: 22px;
+    font-weight: bold;
+}
+.input__produto input[type=submit]{
+    width: auto;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #096900;
+    color: white;
+    cursor: pointer;
+}
