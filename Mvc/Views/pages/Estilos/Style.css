@@ -74,3 +74,154 @@ section.form__login{
   
     color: white;
 }
+.cliente__wraper{
+    float: left;
+    width: 33.3%;
+    padding: 20px;
+
+}
+.cliente__box{
+    background-color: rgb(236, 236, 236);
+    min-height: 550px;
+    width: 100%;
+    border: 2px solid black;
+    overflow-y: auto;
+    
+}
+.circle__cliente img{
+    width: 100%;
+
+    display: block;
+}
+.circle__cliente{
+   padding: 40px;
+   text-align: center;
+}
+.circle__cliente span{
+    font-size: 80px;
+    color: rgb(76, 161, 59);
+}
+.head__cliente{
+    background-color: rgb(255, 255, 255);
+    min-height: 100px;
+    border-bottom: 2px solid black;
+}
+.body__cliente p{
+    display: inline-block;
+    font-size: 16px;
+}
+.body__cliente h4{
+    margin-bottom: 10px;
+    display: inline-block;
+    font-size: 20px;
+}
+.body__cliente{
+    padding: 10px;
+}
+.box__crud{
+    padding: 5px 10px;
+    border: 1px solid black;
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+    display: inline-block;
+}
+.box__search{
+    background-color: #00695c;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 20px 0;
+    
+}
+.box__search h2{
+    color: white;
+    font-weight: lighter;
+}
+label{
+    display: block;
+    margin-bottom: 10px;
+}
+.btn{
+    padding: 5px 10px;
+  
+    color: white;
+}
+.gera_pdf{
+    display: inline-block;
+    margin: 10px 0;
+    background-color: orangered;
+    padding: 6px;
+    border: 1px solid black;
+}
+.gera_pdf a{
+    color: white;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+.box__content a{
+    color: black;
+}
+.cliente__box > .input__produto{
+    border-bottom: 3px solid rgb(112, 112, 112);
+    padding: 13px 5px;
+    margin-bottom: 10px;
+}
+.cliente__box > .w70{
+    width: 70%;
+    float: left;
+}
+.cliente__box .produto__img img{
+    width: 100%;
+}
+.cliente__box .w30{
+    width: 30%;
+    float: left;
+}
+.input__produto input[type=number]{
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+}
+.input__produto h5{
+    font-size: 22px;
+    font-weight: bold;
+}
+.input__produto input[type=submit]{
+    width: auto;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #096900;
+    color: white;
+    cursor: pointer;
+}
+.card__title{
+    color: white;
+    padding:10px;
+    border: 2px solid black;
+    margin: 20px 0;
+    background-color: #0277bd;
+    width: 100%;
+}
+.card__title > h2{
+    
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+.card__title a{
+    color: white;
+}
+.produto__img h4{
+    text-align: center;
+    font-size: 70px;
+    color: rgb(139, 139, 139);
+}
+
+@media screen and (max-width: 1024px){
+    .cliente__wraper{
+        width: 100%;
+    }
+    .cliente__box .w30{
+        width: 100%;
+    }
+    .cliente__box .w70{width: 100%;}
+}

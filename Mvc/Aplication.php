@@ -1,6 +1,6 @@
 <?php  
 define("PATH_FULL","http://localhost/teste/git/Mvc/Views/pages");
-
+define('BASE_DIR_PAINEL',__DIR__.'/Views/pages/');
 
 class Aplication{
     public static function Execute(){

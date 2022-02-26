@@ -14,43 +14,71 @@
                 $quantidade = $_POST['quantidade'];
                 $peso = $_POST['peso'];
                 $imagem = $_FILES['image'];
-                $imagem = '';
+                
                 $imagens = array();
+                $quantidade_arquivos = count($_FILES['image']['name']);
+                
+                 $sucesso = true;
 
-                if(empty($nome) || empty($descricao) || empty($largura) || empty($altura) ){
+            if($_FILES['image']['name'][0] != ''){
+             $tipo_permitidos = ['jpg','jpeg','gif','png','JPG','JPEG','GIF','PNG'];
+            
+
+                for($i = 0;$i < $quantidade_arquivos;$i++){
+                    $imagemAtual = ['type'=>$_FILES['image']['type'][$i],
+                    'size'=>$_FILES['image']['size'][$i]];
+                    $extensao = pathinfo($_FILES['image']['name'][$i], PATHINFO_EXTENSION);
+                if(in_array($extensao,$tipo_permitidos)){
+                    $pasta = BASE_DIR_PAINEL.'uploads/';
+                    $temporario = $_FILES['image']['tmp_name'][$i];
+                    $novo_nome = uniqid().".$extensao";
+
+                    if(move_uploaded_file($temporario,$pasta.$novo_nome)){
+                        echo '<div class="success">Upload realizado!</div>';
+                    }else{
+                        $sucesso = false;
+                        echo '<div class="erro" >falha no upload</div>';
+                    }
+
+                }else{
+                    $sucesso = false;
+                    echo '<div class="erro">tipo de arquivo não é permitido!</div>';
+                }
+            }
+
+        }else{
+            $sucesso = false;
+            echo '<div class="erro">VocÊ precisa selecionar pelo menos uma imagem!</div>';
+        }
+
+
+            if($sucesso){
+                for($i = 0;$i < $quantidade_arquivos;$i++){
+                    $imagemAtual = ['tmp_name'=>$_FILES['image']['tmp_name'][$i],
+                    'name'=>$_FILES['image']['name'][$i]
+                ];
+                    $imagens[] = \Models\HomeModel::uploadFile($imagemAtual);
+                }
+                
+            if(empty($nome) || empty($descricao) || empty($largura) || empty($altura) ){
                     echo '<div class="erro" >não é permitidos campos vazios</div>';
                 }else{
                     $sql = \MySql::connect()->prepare("INSERT INTO `estoque` VALUES (null,?,?,?,?,?,?,?) ");
                     $sql->execute(array($nome,$descricao,$largura,$altura,$comprimento,$peso,$quantidade));
                     $lastId = \MySql::connect()->lastInsertId();
                     foreach($imagens as $key => $value){
-                        \MySql::connect()->exec("INSERT INTO `estoque_imagem` VALUES (null,$lastId,'$value')");
+                        \MySql::connect()->exec("INSERT INTO `estoque_imagem` VALUES (null,$lastId,'$novo_nome')");
                     };
-                    //echo '<div class="success" >Produto cadastrado com sucesso!</div>';
-                    header('location: cadastrar_produtos');
-                }
-
-                //$sucesso = true;
-
-            /*
-                $tipo_permitidos = ['jpg','jpeg','gif','png','JPG','JPEG','GIF','PNG'];
-                $quantidade_arquivos = count($_FILES['imagem']['name']);
-
-                for($i = 0;$i < $quantidade_arquivos;$i++){
-                    $extensao = pathinfo($_FILES['imagem']['name'][$i], PATHINFO_EXTENSION);
-                if(in_array($extensao,$tipo_permitidos)){
-                    $pasta = PATH_FULL.'/uploads/';
-                    $temporario = $_FILES['imagem']['tmp_name'][$i];
-                    $novo_nome = uniqid().".$extensao";
-                    if(move_uploaded_file($temporario,$pasta.$novo_nome)){
-                        echo '<div class="success">Upload realizado!</div>';
-                    }else{
-                        echo '<div class="erro" >falha no upload</div>';
-                    }
-                }else{
-                    echo '<div class="erro">tipo de arquivo não é permitido!</div>';
+                    echo '<div class="success" >Produto cadastrado com sucesso!</div>';
+                    //header('location: cadastrar_produtos');
                 }
             }
+               
+
+                
+
+            /*
+               
 */
                /*for($i = 0;$i < $amountFiles;$i++){
                     $imagemAltura = ['type'=>$_FILES['imagem']['type'][$i],'size'=>$_FILES['imagem']['size'][$i]];

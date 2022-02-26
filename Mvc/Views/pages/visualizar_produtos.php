@@ -24,6 +24,20 @@
             if($sql->rowCount() > 0){
                 echo '<div class="alerta" ><i class="fa-solid fa-triangle-exclamation"></i> Você está com produtos em falta! clique <a style="color:white" href="visualizar_produtos?pendentes" >aqui!</a> para visualiza-los!</div>';
             }
+
+            if(isset($_GET['delete'])){
+                $id = (int)$_GET['delete'];
+                $imagens = \MySql::connect()->prepare("SELECT * FROM `estoque_imagem` WHERE produto_id = $id");
+                $imagens->execute();
+                $imagens = $imagens->fetchAll();
+                foreach($imagens as $key => $value){
+                    @unlink(BASE_DIR_PAINEL.'uploads/'.$value['imagem']);
+                }
+                \MySql::connect()->exec("DELETE FROM `estoque_imagem` WHERE produto_id = $id");
+                \MySql::connect()->exec("DELETE FROM `estoque` WHERE id = $id");
+                echo '<div class="success" >O produto foi deletado com sucesso!</div>';
+            }
+
            ?>
            <div class="box__search">
                <h2><i class="fa-solid fa-magnifying-glass"></i> Realizar uma busca!</h2>
@@ -62,7 +76,7 @@
            }
                $imagemSingle = \MySql::connect()->prepare("SELECT * FROM `estoque_imagem` WHERE produto_id = '$value[id]'");
                $imagemSingle->execute();
-               $imagemSingle = $imagemSingle->fetch()['imagem'];
+               @$imagemSingle = $imagemSingle->fetch()['imagem'];
                ?>
 
           
@@ -70,7 +84,11 @@
                 <div class="cliente__box">
                     
                     <div class="produto__img w30">
+                        <?php if($imagemSingle == ''){?>
+                            <h4><i class="fa-solid fa-box"></i></h4>
+                       <?php }else{ ?>
                         <img src="<?php echo PATH_FULL ?>/uploads/<?php echo $imagemSingle ?>" alt="">
+                        <?php } ?>
                     </div><!--produto__img-->
                    
                   
@@ -93,8 +111,8 @@
                             <input type="hidden" name="produto_id" value="<?php echo $value['id']; ?>"  />
                             <input type="submit" value="Atualizar" name="atualizar" >
                         </form>
-                        <a class="box__crud green" href="edit_cliente?id=<?php echo $value['id']; ?>">Editar</a>
-                        <a class="box__crud orange " href="delete?id=<?php echo $value['id']; ?>">Excluir</a>
+                        <a class="box__crud green" href="edit_produto?id=<?php echo $value['id']; ?>">Editar</a>
+                        <a class="box__crud orange " href="visualizar_produtos?delete=<?php echo $value['id']; ?>">Excluir</a>
                     </div><!--body__cliente-->
                 </div><!--cliente__box-->
            </div><!--cliente__wraper-->
@@ -165,8 +183,8 @@
                             <input type="hidden" name="produto_id" value="<?php echo $value['id']; ?>"  />
                             <input type="submit" value="Atualizar" name="atualizar" >
                         </form>
-                        <a class="box__crud green" href="edit_cliente?id=<?php echo $value['id']; ?>">Editar</a>
-                        <a class="box__crud orange " href="delete?id=<?php echo $value['id']; ?>">Excluir</a>
+                        <a class="box__crud green" href="edit_produto?id=<?php echo $value['id']; ?>">Editar</a>
+                        <a class="box__crud orange " href="visualizar_produtos?delete=<?php echo $value['id']; ?>">Excluir</a>
                     </div><!--body__cliente-->
                 </div><!--cliente__box-->
            </div><!--cliente__wraper-->
