@@ -1,7 +1,7 @@
  <section class="form__login" >
    
         <div class="container__form">
-            <form method="post">
+            <form method="post" enctype="multipart/form-data"  >
                 <h2>Entre na tela de controle!</h2>
                 <div class="wrap__form">
                      <label for="">Seu Nome de Usuário:</label>
@@ -22,6 +22,12 @@
                     <label for="">Crie a sua senha:</label>
                      <input type="password" name="cadastro-senha">
                 </div><!--wrap__form-->
+
+                <div class="wrap__form">
+                    <label for="">Imagem</label>
+                    <input type="file" name="imagem" >
+                </div><!--wrap__form-->
+
                 <input type="submit" name="cadastrar" value="Cadastrar"   >
             </form>
         </div><!--container__form-->

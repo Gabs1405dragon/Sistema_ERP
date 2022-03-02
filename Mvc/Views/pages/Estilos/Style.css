@@ -6,7 +6,14 @@
 html,body{
     background-color: rgb(19, 16, 16);
 }
-
+.w40{
+width: 40%;
+float: left;
+}
+.w60{
+    width: 60%;
+    float: left;
+}
 section.form__login{
     position: absolute;
     top: 50%;
@@ -215,6 +222,19 @@ label{
     font-size: 70px;
     color: rgb(139, 139, 139);
 }
+/* visualizar empreendimento */
+.empreendimento__img {
+    min-height: 300px;
+}
+.empreendimento__img img{
+    width: 100%;
+}
+.empreendimento__list li{
+    list-style-type: none;
+    line-height: 40px;
+    border-bottom: 2px solid black;
+
+}
 
 @media screen and (max-width: 1024px){
     .cliente__wraper{
@@ -224,4 +244,7 @@ label{
         width: 100%;
     }
     .cliente__box .w70{width: 100%;}
+    .w40,.w60{
+        width: 100%;
+    }
 }

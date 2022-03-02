@@ -10,7 +10,28 @@
     
     <script src="<?php echo PATH_FULL ?>/js/jquery.mask.js" ></script>
     <script src="<?php echo PATH_FULL ?>/js/ajax.js" ></script>
-    
+    <script src="<?php echo PATH_FULL ?>/js/jquery-ui.min.js" ></script>
+    <script>
+        $(()=>{
+            $( ".cliente__wraper" ).sortable({
+                start:function(){
+                    let el = $(this);
+                    if(!el == true){
+                         el.find('.cliente__box').css('border','5px dashed black');
+                    }else{
+                        el.find('.cliente__box').css('border','3px solid black');
+                    }
+                   
+            },
+            update:function(event,ui){
+               // var data = $(this).sortable('serialize');
+               // console.log(date);
+                let el = $(this);
+                el.find('.cliente__box').css('border','1px solid black');
+            }
+        });
+        });
+    </script>
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>tinymce.init({
         plugins: 'image',

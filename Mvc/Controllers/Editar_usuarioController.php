@@ -9,14 +9,19 @@ class Editar_usuarioController{
 
     public function index(){
         if(isset($_SESSION['login'])){
+            
+               
             if(isset($_POST['acao'])){
                 $nomeEdit = $_POST['nome_edit'];
                 $senhaEdit = $_POST['senha_edit'];
-                if(empty($nomeEdit) && empty($senhaEdit)){
+                $imagem = $_FILES['imagem'];
+                $id = $_GET['id'];
+                
+                if(empty($nomeEdit) || empty($senhaEdit)){
                     echo '<div class="erro" >Campos vázios não são permitidos!</div>';
                 }else{
-                    \Models\HomeModel::atualizarUsuario($nomeEdit,$senhaEdit);
-                    header('location: editar_usuario');
+                    \Models\HomeModel::atualizarUsuario($nomeEdit,$senhaEdit,$imagem,$id);
+                    header("location: editar_usuario?id=$id");
                 }
             }
             $this->view->render(array('titulo'=>'edite o seu nome e senha de usuário!'));

@@ -16,11 +16,12 @@ class RegisterController{
              $nomeCadastro = $_POST['cadastro-nome'];
              $emailCadastro = $_POST['cadastro-email'];
              $senhaCadastro = $_POST['cadastro-senha'];
+             $imagem = $_FILES['imagem'];
              $cargo = $_POST['cargos'];
-             if(empty($nomeCadastro) && empty($emailCadastro) && empty($senhaCadastro)){
+             if(empty($nomeCadastro) || empty($emailCadastro) || empty($senhaCadastro)){
                 echo '<div class="erro" >Por Favor preenchar todos os campos do cadastro!!</div>';
              }else{
-                \Models\LoginModel::registrar($nomeCadastro,$emailCadastro,$senhaCadastro,$cargo);
+                \Models\LoginModel::registrar($nomeCadastro,$emailCadastro,$senhaCadastro,$cargo,$imagem);
              }
     
             }

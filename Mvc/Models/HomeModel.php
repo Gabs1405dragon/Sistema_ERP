@@ -4,7 +4,7 @@ namespace Models;
 class HomeModel{
 
     public static function imageValida($imagem){
-        if($imagem['type'] == 'image/jpeg' || $imagem['type'] == 'image/jpg' || $imagem['type'] == 'image/png'){
+        if($imagem['type'] == 'image/jpeg' && $imagem['type'] == 'image/jpg' && $imagem['type'] == 'image/png'){
             $tamanho = intval($imagem['size']/1024);
             if($tamanho < 900)
                 return true;
@@ -19,7 +19,7 @@ class HomeModel{
     public static function uploadFile($file){
         $formatoArquivo = explode('.',$file['name']);
         $imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
-        if(move_uploaded_file($file['tmp_name'],BASE_DIR_PAINEL.'uploads/'.$imagemNome)){
+        if(move_uploaded_file($file['tmp_name'],BASE_DIR_PAINEL.'/uploads/'.$imagemNome)){
             return $imagemNome;
         }else{
             return false;
@@ -48,13 +48,37 @@ class HomeModel{
         
     }
 
-    public static function atualizarUsuario($nome,$senha){
-        $sql = \MySql::connect()->prepare("UPDATE `usuarios` SET nome = ? ,senha = ? WHERE email = ? ");
+    public static function atualizarUsuario($nome,$senha,$imagem,$id){
+        $novoArquivo = explode('.',$imagem['name']);
+        $sucesso = true;
+
+       $imagem2 = \MySql::connect()->prepare("SELECT * FROM `usuarios` WHERE id = $id");
+       $imagem2->execute();
+       $imagemExcluir = $imagem2->fetch();
+        @unlink(BASE_DIR_PAINEL.'/uploads/'.$imagemExcluir['imagem']);
+        \MySql::connect()->prepare("DELETE FROM `usuarios` WHERE imagem = '$imagemExcluir[imagem]' AND  id = $id");
+       
         
-        if($sql->execute(array($nome,$senha,$_SESSION['login']))){
-            return true;
-        }else{
-            return false;
+        if($novoArquivo[sizeof($novoArquivo)-1] != 'jpg' && $novoArquivo[sizeof($novoArquivo)-1] != 'png' && $novoArquivo[sizeof($novoArquivo)-1] != 'gif'){
+            $sucesso = false;
+            echo '<div class="erro">Voce não pode fazer upload deste tipo de arquivo!</div>';  
+         }else{
+           
+             move_uploaded_file($imagem['tmp_name'],BASE_DIR_PAINEL.'/uploads/'.$imagem['name']);
+              
+         }
+
+        if($sucesso){
+          
+
+            $sql = \MySql::connect()->prepare("UPDATE `usuarios` SET nome = ? ,senha = ? , email = ?,imagem = ? WHERE id = $id");
+            
+            if($sql->execute(array($nome,$senha,$_SESSION['login'],$imagem['name']))){
+                
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 
