@@ -12,7 +12,7 @@ class LoginModel{
             $_SESSION['login'] = $email;
             $_SESSION['nome'] = $dados['nome'];
             $_SESSION['cargo'] =$dados['cargo'];
-            $_SESSION['id'] = $dados['id'];
+            $_SESSION['user_id'] = $dados['id'];
             $_SESSION['imagem'] = $dados['imagem'];
             header('location: home');
             

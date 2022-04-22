@@ -5,7 +5,7 @@
            <form method="post">
                <div class="wrap__input">
                    <label for="">Nome da pessoa:</label>
-                   <input type="text" name="nome_pessoa" >
+                   <input type="text" value="<?php echo \Models\ChatModel::pegarPost('nome_pessoa'); ?>" name="nome_pessoa" >
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <label for="">Depoimento:</label>

@@ -4,7 +4,13 @@ class Editar_siteController{
     private $view;
 
     public function __construct(){
-        if(isset($_POST['site'])){
+       
+        $this->view = new \Views\MainView('Editar_site');
+    }
+
+    public function index(){
+        if(isset($_SESSION['login'])){
+             if(isset($_POST['site'])){
             $titulo = $_POST['titulo'];
             $nome_author = $_POST['nome_author'];
             $descricao = $_POST['descricao'] ;
@@ -17,7 +23,7 @@ class Editar_siteController{
             $titulo_icon3 = $_POST['titulo_icon3'] ;
             $icon3 = $_POST['icon3'] ;
             $descricao3  = $_POST['descricao3'];
-            if(empty($titulo) && empty($nome_author) && empty($descricao) && empty($descricao1) && empty($descricao2) && empty($descricao3)){
+            if(empty($titulo) || empty($nome_author) || empty($descricao) || empty($descricao1) || empty($descricao2) || empty($descricao3)){
                echo '<div class="erro">Não é permitido campos vázios</div>'; 
             }else{
                
@@ -25,11 +31,6 @@ class Editar_siteController{
                 header('location: Editar_site');
             }
         }
-        $this->view = new \Views\MainView('Editar_site');
-    }
-
-    public function index(){
-        if(isset($_SESSION['login'])){
             $this->view->render(array('titulo'=>'Pagina para editar o site'));
         }else{
             header('location: login');

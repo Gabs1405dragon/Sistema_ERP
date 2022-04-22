@@ -1,6 +1,7 @@
 <?php  
 define("PATH_FULL","http://localhost/teste/git/Mvc/Views/pages");
 define('BASE_DIR_PAINEL',__DIR__.'/Views/pages/');
+date_default_timezone_set('America/Sao_Paulo');
 
 class Aplication{
     public static function Execute(){

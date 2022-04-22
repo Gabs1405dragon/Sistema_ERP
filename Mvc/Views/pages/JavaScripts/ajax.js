@@ -21,4 +21,5 @@ $(function(){
             console.log(data);
         }
     })
+    
 })

@@ -16,6 +16,12 @@ class HomeModel{
         }
     }
 
+    public static function formatarMoedaBd($valor){
+        $valor = str_replace('.','',$valor);
+        $valor = str_replace(',','.',$valor);
+        return $valor;
+    }
+
     public static function uploadFile($file){
         $formatoArquivo = explode('.',$file['name']);
         $imagemNome = uniqid().'.'.$formatoArquivo[count($formatoArquivo) - 1];
@@ -82,11 +88,11 @@ class HomeModel{
         }
     }
 
-    public static function cadastrarUsuario($nome,$email,$senha,$cargo){
+   /* public static function cadastrarUsuario($nome,$email,$senha,$cargo){
         $sql = \MySql::connect()->prepare("INSERT INTO `usuarios`  (id,nome,email,senha,cargo) VALUES (null,?,?,?,?)");
         $sql->execute(array($nome,$email,$senha,$cargo));
         
-    }
+    }*/
 
     public static function deletar($tabela,$id = false){
         if($id == false){
@@ -131,7 +137,7 @@ class HomeModel{
     public static function updateSite($titulo,$nome_author,$descricao,$titulo_icon1,$titulo_icon2,$icon1,$descricao1,$icon2,$descricao2,$titulo_icon3,$icon3,$descricao3){
         $sql = \MySql::connect()->prepare("DELETE FROM `config` ");
         $sql->execute();
-        $sql = \MySql::connect()->prepare("INSERT INTO `config` VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
+        $sql = \MySql::connect()->prepare("INSERT INTO `config` VALUES (null,?,?,?,?,?,?,?,?,?,?,?,?)");
         $sql->execute(array($titulo,$nome_author,$descricao,$titulo_icon1,$titulo_icon2,$icon1,$descricao1,$icon2,$descricao2,$titulo_icon3,$icon3,$descricao3));
     }
 
@@ -193,7 +199,7 @@ class HomeModel{
             $check->execute(array($_SESSION['online']));
 
             if($check->rowCount() == 1){
-                $sql = $pdo->prepare("UPDATE `online` SET ultima_acao = ? WHERE token = ? ");
+                $sql = $pdo->prepare("UPDATE `online` SET ultimo_acao = ? WHERE token = ? ");
                 $sql->execute(array($horarioAtual,$token));
             }else{
                 if(!empty($_SERVER['HTTP_CLIENT_IP'])){
@@ -250,6 +256,13 @@ class HomeModel{
             $sql->execute(array($_SERVER['REMOTE_ADDR'],date('Y-m-d')));            
         }
     }
+
+    public static function pegarPost($post){
+        if(isset($_POST[$post])){
+            echo $_POST[$post];
+        }
+    }
+    
 /*
     public static function insertCategoria($arr){
         $certo = true;

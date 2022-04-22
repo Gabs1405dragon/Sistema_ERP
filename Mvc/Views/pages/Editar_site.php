@@ -1,5 +1,8 @@
 <?php
-$config = \Models\HomeModel::select('config','id = ?',false);
+//$config = \Models\HomeModel::select('config','id = ?',false);
+$config = \MySql::connect()->prepare("SELECT * FROM config ");
+$config->execute();
+$config = $config->fetch();
 ?>
 <section class="painel__right">
     <div class="box__wrap">

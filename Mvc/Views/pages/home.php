@@ -1,5 +1,5 @@
 <?php  
-$listarUsuarios = \Models\HomeModel::listarUsuariosOnline();
+$usuariosOnline = \Models\HomeModel::listarUsuariosOnline();
 
 $pegarVisitasTotais = \MySql::connect()->prepare("SELECT * FROM `visitas` ");
 $pegarVisitasTotais->execute();
@@ -21,7 +21,7 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
                 <div class="box__wrap w33">
                     <div class="box__online orange">
                         <h3>Usuários Online</h3>
-                        <p><?php echo count($listarUsuarios); ?></p>
+                        <p><?php echo count($usuariosOnline); ?></p>
                     </div><!--box__online-->
                 </div><!--box__wrap-->
 
@@ -55,7 +55,7 @@ $pegarVisitasHoje = $pegarVisitasHoje->rowCount();
                             </tr>
                         </thead>
                         <tbody>
-                            <?php foreach($listarUsuarios as $key => $value){ ?>
+                            <?php foreach($usuariosOnline as $key => $value){ ?>
                             <tr>
                                 <td><?php echo $value['ip']; ?></td>
                                 <td><?php echo date('d/m/Y H:i:s',strtotime($value['ultimo_acao'])); ?></td>

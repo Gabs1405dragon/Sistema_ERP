@@ -14,7 +14,7 @@
                 <li <?php echo \Models\HomeModel::selecionandoMenu('listar_depoimento') ?> ><a class="item__select" href="listar_depoimento">Listar Depoimentos!</a></li>
                 <li <?php echo \Models\HomeModel::selecionandoMenu('listar_servicos') ?> ><a class="item__select" href="listar_servicos">Listar Serviços!</a></li>
                 <li class="item__principal" >Administração do painel</li>
-                <li <?php \Models\HomeModel::selecionandoMenu('editar_usuario'); ?> ><a class="item__select" href="editar_usuario?id=<?php echo $_SESSION['id'] ?>">Editar Usuário!</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('editar_usuario'); ?> ><a class="item__select" href="editar_usuario?id=<?php echo $_SESSION['user_id'] ?>">Editar Usuário!</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('adicionar_usuarios'); ?> ><a class="item__select" href="adicionar_usuarios">Adicionar Usuário!</a></li>
                 <li class="item__principal" >Configuração Geral</li>
                 <li <?php \Models\HomeModel::selecionandoMenu('Editar_site'); ?> ><a class="item__select" href="Editar_site">Editar Site!</a></li>
@@ -29,12 +29,15 @@
                 <li class="item__principal" >Controler finâceiro</li>
                 <li <?php \Models\HomeModel::selecionandoMenu('visualizar_pagamento'); ?> ><a class="item__select" href="visualizar_pagamento">Visualizar pagamento</a></li>
                 <li class="item__principal" >Controle Estoque</li>
-                <li <?php \Models\HomeModel::selecionandoMenu('cadastrar-produtos'); ?> ><a class="item__select" href="cadastrar_produtos">Cadastrar produtos</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('cadastrar_produtos'); ?> ><a class="item__select" href="cadastrar_produtos">Cadastrar produtos</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('visualizar_produtos') ?> ><a class="item__select" href="visualizar_produtos">Visualizar produtos</a></li>
                 <li class="item__principal" >Gestão de imóveis</li>
                 <li <?php \Models\HomeModel::selecionandoMenu('cadastrar_empreendimento') ?> ><a class="item__select" href="cadastrar_empreendimento">Cadastrar empreendimento</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('listar_empreendimento') ?> ><a class="item__select" href="listar_empreendimento">Listar empreendimentos</a></li>
-                
+                <li class="item__principal" >Gestão EAD</li>
+                <li <?php \Models\HomeModel::selecionandoMenu('novo_aluno') ?> ><a class="item__select" href="novo_aluno">Novo Aluno</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('novo_modulo') ?> ><a class="item__select" href="novo_modulo">Novo Módulo</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('nova_aula') ?> ><a class="item__select" href="nova_aula">Nova Aula</a></li>
             </div><!--menu__items-->
 
     </aside>

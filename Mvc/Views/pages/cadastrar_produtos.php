@@ -13,6 +13,8 @@
                 $comprimento = $_POST['comprimento'];
                 $quantidade = $_POST['quantidade'];
                 $peso = $_POST['peso'];
+                $preco = \Models\HomeModel::formatarMoedaBd($_POST['preco']);
+                
                 $imagem = $_FILES['image'];
                 
                 $imagens = array();
@@ -60,11 +62,11 @@
                     $imagens[] = \Models\HomeModel::uploadFile($imagemAtual);
                 }
                 
-            if(empty($nome) || empty($descricao) || empty($largura) || empty($altura) ){
+            if(empty($nome) || empty($descricao) || empty($largura) || empty($altura) || empty($preco) ){
                     echo '<div class="erro" >não é permitidos campos vazios</div>';
                 }else{
-                    $sql = \MySql::connect()->prepare("INSERT INTO `estoque` VALUES (null,?,?,?,?,?,?,?) ");
-                    $sql->execute(array($nome,$descricao,$largura,$altura,$comprimento,$peso,$quantidade));
+                    $sql = \MySql::connect()->prepare("INSERT INTO `estoque` VALUES (null,?,?,?,?,?,?,?,?) ");
+                    $sql->execute(array($nome,$descricao,$largura,$altura,$comprimento,$peso,$quantidade,$preco));
                     $lastId = \MySql::connect()->lastInsertId();
                     foreach($imagens as $key => $value){
                         \MySql::connect()->exec("INSERT INTO `estoque_imagem` VALUES (null,$lastId,'$novo_nome')");
@@ -130,6 +132,11 @@
                <div class="wrap__input">
                    <label for="">Quantidade atual do produto:</label>
                    <input type="number" min="0" max="900" step="5" name="quantidade" >
+               </div><!--wrap__input-->
+
+               <div class="wrap__input">
+                   <label for="">Quantidade atual do produto:</label>
+                   <input type="text"  name="preco" formato="money" placeholder="R$000.000,00" >
                </div><!--wrap__input-->
 
                 <div class="wrap__input">

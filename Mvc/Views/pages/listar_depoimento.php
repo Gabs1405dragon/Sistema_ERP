@@ -24,7 +24,7 @@
                    foreach($info as $key => $value){?>
                    <tr>
                        <td><?php echo $value['nome'];?></td>
-                       <td><?php echo $value['date']; ?></td>
+                       <td><?php echo $value['data']; ?></td>
                        <td><a href="edit_depoimento?id=<?php echo $value['id']; ?>" ><span class="edit"><i class="fa-solid fa-pen"></i><span></a></td>
                        <td><a href="listar_depoimento?excluirr=<?php echo $value['id']; ?>" ><span class="trash" ><i class="fa-solid fa-trash-can"></i></span></a></td>
                    </tr>

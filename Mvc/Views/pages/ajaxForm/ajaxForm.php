@@ -9,6 +9,8 @@ include('../../../Models/HomeModel.php');
 $homeModels = new HomeModel();
 
 if(isset($_SESSION['login'])){
+   
+
     sleep(2);
     $data['success'] = true;
 
@@ -50,27 +52,6 @@ if(isset($_SESSION['login'])){
         
     }
     
-
-    
-    /*
-    if(isset($_FILES['imagem'])){
-      
-      $arquivo = $_FILES['imagem'];
-
-      $novoArquivo = explode('.',$arquivo['name']);
-
-      if($novoArquivo[sizeof($novoArquivo)-1] != 'jpg'){
-         die('Voce não pode fazer upload deste tipo de arquivo!');
-      }else{
-          echo 'Upload foi feito com sucesso!';
-          move_uploaded_file($arquivo['tmp_name'],'http://localhost/teste/git/Mvc/Views/pages/uploads/'.$arquivo['name']);
-
-      }
-        
-    }else{
-        $data['success'] = false;
-         $data['erros'] = "Imagem invalida/vázio";
-    }*/
 
     die(json_encode($data));
 }else{

@@ -19,12 +19,14 @@
                </thead>
                <tbody>
                    <?php
-                  $info =  \Models\HomeModel::selectAll('servicos',($paginaAtual - 1) * $porPagina,$porPagina);
-
-                   foreach($info as $key => $value){?>
+                  //$info =  \Models\HomeModel::selectAll('servicos',($paginaAtual - 1) * $porPagina,$porPagina);
+                    $servicos = \MySql::connect()->prepare("SELECT * FROM servicos");
+                    $servicos->execute();
+                    $servicos = $servicos->fetchAll();
+                   foreach($servicos as $key => $value){?>
                    <tr>
                        <td><?php echo $value['id'];?></td>
-                       <td><?php echo $value['servicos']; ?></td>
+                       <td><?php echo $value['servico']; ?></td>
                        <td><a href="edit_servicos?id=<?php echo $value['id']; ?>" ><span class="edit"><i class="fa-solid fa-pen"></i><span></a></td>
                        <td><a href="listar_servicos?excluirr=<?php echo $value['id']; ?>" ><span class="trash" ><i class="fa-solid fa-trash-can"></i></span></a></td>
                    </tr>
@@ -35,7 +37,7 @@
 
            <div class="paginacao">
                <?php  
-               $totalPaginas = ceil(count(\Models\HomeModel::selectAll('servicos'))/$porPagina);
+               $totalPaginas = ceil(count($servicos)/$porPagina);
                for($i = 0;$i < $totalPaginas;$i++){
                    $numero  = $i + 1;
                    if($numero == $paginaAtual){

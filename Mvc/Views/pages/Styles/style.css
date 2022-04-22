@@ -236,6 +236,31 @@ label{
 
 }
 
+.mesagem{
+    padding: 10px; 
+    overflow-y: auto;
+    height: 400px;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+.chat{
+    margin: 20px 0;
+    border-bottom: 1px solid black;
+    padding: 5px ;
+}
+.chat h3{
+    padding: 5px 20px;
+    background-color: #0277bd;
+    color: white;
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.calendario thead{background-color: #0277bd;}
+.calendario td{cursor:pointer;border: 1px solid black;text-align: center;}
+.calendario_active{background-color: antiquewhite;}
+.tarefa__single{padding: 10px;float: left;width: 33.3%;}
+.tarefa{background-color: #096900; color: white;padding:10px;}
 @media screen and (max-width: 1024px){
     .cliente__wraper{
         width: 100%;

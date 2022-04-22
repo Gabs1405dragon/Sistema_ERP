@@ -17,7 +17,7 @@ $servicos = $sql->fetch();
            <form method="post">
            <div class="wrap__input">
                    <label for="">Serviço:</label>
-                   <textarea name="edit_servico" ><?php echo $servicos['servicos']; ?></textarea>
+                   <textarea name="edit_servico" ><?php echo $servicos['servico']; ?></textarea>
                </div><!--wrap__input-->
                
                <div class="wrap__input">

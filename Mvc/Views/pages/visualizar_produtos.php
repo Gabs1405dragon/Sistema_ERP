@@ -105,6 +105,8 @@
                         <div class=""></div>
                         <h4><i class="fa-solid fa-ruler-horizontal"></i> Peso:</h4> <?php echo $value['peso'] ?>cm</p>
                         <div class=""></div>
+                        <h4><i class="fa-solid fa-money-bill"></i> Preço: </h4>R$ <?php echo $value['preco'] ?></p>
+                        <div class=""></div>
                         <form method="post"  class="input__produto">
                             <h5><i class="fa-solid fa-arrow-up-9-1"></i> Quantidade atual:</h5>
                             <input type="number" max="100" min="0" step="1" name="quantidade" value="<?php echo $value['quantidade']; ?>" >
