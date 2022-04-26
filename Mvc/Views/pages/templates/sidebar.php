@@ -38,6 +38,10 @@
                 <li <?php \Models\HomeModel::selecionandoMenu('novo_aluno') ?> ><a class="item__select" href="novo_aluno">Novo Aluno</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('novo_modulo') ?> ><a class="item__select" href="novo_modulo">Novo Módulo</a></li>
                 <li <?php \Models\HomeModel::selecionandoMenu('nova_aula') ?> ><a class="item__select" href="nova_aula">Nova Aula</a></li>
+                <li class="item__principal" >E-mail Marketing</li>
+                <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_listas') ?> ><a class="item__select" href="gerenciar_listas">Gerenciar Listas</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('gerenciar_contatos') ?> ><a class="item__select" href="gerenciar_contatos">Gerenciar Contatos</a></li>
+                <li <?php \Models\HomeModel::selecionandoMenu('criar_campanha') ?> ><a class="item__select" href="criar_campanha">Criar Campanha</a></li>
             </div><!--menu__items-->
 
     </aside>

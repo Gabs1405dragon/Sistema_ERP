@@ -9,6 +9,7 @@ class LoginModel{
         $sql->execute(array($email,$senha));
         if($sql->rowCount() == 1){
             $dados = $sql->fetch();
+            setcookie('Painel',true,time()+24*24*7,'/');
             $_SESSION['login'] = $email;
             $_SESSION['nome'] = $dados['nome'];
             $_SESSION['cargo'] =$dados['cargo'];

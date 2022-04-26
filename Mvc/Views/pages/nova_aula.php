@@ -2,7 +2,7 @@
     <div class="box__wrap">
         <div class="box__content">
            <h2>Cadastrar Novas Aulas!!</h2>
-           <form method="post">
+           <form method="post" enctype="multipart/form-data" > 
                <div class="wrap__input">
                    <label for="">Nome da aula:</label>
                    <input type="text" value="<?php echo \Models\ChatModel::pegarPost('nome'); ?>" name="nome" >
@@ -22,7 +22,7 @@
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <label for="">Link da aula:</label>
-                   <input type="text" name="link_aula" >
+                   <input type="file" name="link_aula" >
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <input type="submit" name="cadastrar_aula" value="Cadastrar Aula!" >

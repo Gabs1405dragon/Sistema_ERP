@@ -1,7 +1,9 @@
 <?php 
 
 if(isset($_GET['excluir'])){
+    setcookie('Painel',true,time()-24*24*7,'/');
     session_unset();
+
     session_destroy();
     header('location: login');
 }

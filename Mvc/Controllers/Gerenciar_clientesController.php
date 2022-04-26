@@ -1,6 +1,6 @@
 <?php 
 namespace Controllers;
-class gerenciar_clientesController{
+class Gerenciar_clientesController{
     private $view;
     public function __construct(){
         $this->view = new \Views\MainView('gerenciar_clientes');
