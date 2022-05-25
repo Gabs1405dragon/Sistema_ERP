@@ -15,17 +15,18 @@ class Cadastrar_depoimentoController{
                 $depoimento = $_POST['depoimento'];
                 $date = $_POST['date'];
                 $order_id = $_POST['order_id'];
-                if(empty($nome) && empty($depoimento) && empty($date)){
-                        echo '<div class="erro" >Campos vázios Não são permitidos!</div>';
+                if(empty($nome) || empty($depoimento) || empty($date)){
+                    echo '<div class="erro" >Campos vázios Não são permitidos!</div>';
                 }else{
-                    \Models\HomeModel::insert($nome ,$depoimento ,$date ,$order_id );
-                    header('location: cadastrar_depoimento');
+                    \Models\HomeModel::insert($nome,$depoimento,$date,$order_id );
+                    echo '<script>location.href="cadastrar_depoimento"</script>';
                 }
                 
             }
             $this->view->render(array('titulo'=>'Registrar Depoimento'));
         }else{
-            header('location: login');
+
+            echo '<script>location.href="login"</script>';
         }
     }
 }

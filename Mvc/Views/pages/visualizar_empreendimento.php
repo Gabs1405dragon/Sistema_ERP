@@ -24,7 +24,7 @@ $dados = $sql->fetch();
                  <div class="empreendimento__list">
                      <li><i class="fa-solid fa-pen"></i> Nome do empreendimento: <?php echo ucfirst($dados['nome'])  ?></li>
                      <li><i class="fa-solid fa-earth-americas"></i> Tipo de empreendimento: <?php echo $dados['tipo'] ?></li>
-                     <li><i class="fa-solid fa-money-check-dollar"></i> Preço do empreendimento: R$<?php echo $dados['preco'] ?></li>
+                     <li><i class="fa-solid fa-money-check-dollar"></i> Preço do empreendimento: R$<?php echo \Models\HomeModel::convertMoney($dados['preco'])?></li>
                  </div><!--empreendimento__list-->
            </div>
 
@@ -37,7 +37,7 @@ $dados = $sql->fetch();
             $empreendID = $id;
             $nome = $_POST['nome'];
             $area = $_POST['area'];
-            $preco = $_POST['preco'];
+            $preco = \Models\HomeModel::formatarMoedaBd($_POST['preco']);
 
             $imagem = $_FILES['image'];
                 

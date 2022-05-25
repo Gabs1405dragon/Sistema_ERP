@@ -65,6 +65,7 @@
             if(empty($nome) || empty($descricao) || empty($largura) || empty($altura) || empty($preco) ){
                     echo '<div class="erro" >não é permitidos campos vazios</div>';
                 }else{
+
                     $sql = \MySql::connect()->prepare("INSERT INTO `estoque` VALUES (null,?,?,?,?,?,?,?,?) ");
                     $sql->execute(array($nome,$descricao,$largura,$altura,$comprimento,$peso,$quantidade,$preco));
                     $lastId = \MySql::connect()->lastInsertId();
@@ -101,12 +102,12 @@
             } ?>
                <div class="wrap__input">
                    <label for="">Nome do produto:</label>
-                   <input type="text" name="produto_nome" >
+                   <input type="text" value="<?= \Models\HomeModel::pegarPost('produto_nome')?>" name="produto_nome" >
                </div><!--wrap__input-->
 
                <div class="wrap__input">
                    <label for="">Descrição do produto:</label>
-                   <textarea name="descricao_produto" ></textarea>
+                   <textarea name="descricao_produto" ><?= \Models\HomeModel::pegarPost('descricao_produto')?></textarea>
                </div><!--wrap__input-->
 
                <div class="wrap__input">
@@ -136,7 +137,7 @@
 
                <div class="wrap__input">
                    <label for="">Quantidade atual do produto:</label>
-                   <input type="text"  name="preco" formato="money" placeholder="R$000.000,00" >
+                   <input type="text" value="<?= \Models\HomeModel::pegarPost('preco')?>"  name="preco" formato="money" placeholder="R$ 000.000,00" >
                </div><!--wrap__input-->
 
                 <div class="wrap__input">

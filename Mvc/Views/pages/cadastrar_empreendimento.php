@@ -6,7 +6,7 @@
                
                <div class="wrap__input">
                    <label for="">Nome:</label>
-                   <input type="text" name="nome_empreendimento" >
+                   <input type="text" value="<?= \Models\HomeModel::pegarPost('nome_empreendimento')?>" name="nome_empreendimento" >
                </div><!--wrap__input-->
 
                <div class="wrap__input">
@@ -19,7 +19,7 @@
 
                <div class="wrap__input">
                     <label for="">Preço</label>
-                    <input formato="money" type="text" name="preco" >
+                    <input formato="money" value="<?= \Models\HomeModel::pegarPost('preco')?>" type="text" name="preco" >
                </div><!--input__input-->
 
                <div class="wrap__input">

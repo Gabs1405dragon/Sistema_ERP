@@ -2,7 +2,7 @@
     <div class="box__wrap">
         <div class="box__content">
            <h2>Cadastrar clientes!</h2>
-           <form class="ajax" method="post" action="<?php echo PATH_FULL ?>/ajaxForm/ajaxForm.php" enctype="multipart/form-data">
+           <form method="post"  enctype="multipart/form-data">
                <div class="wrap__input">
                    <label for="">Nome:</label>
                    <input type="text" name="nome" >
@@ -23,12 +23,12 @@
 
                <div ref="cpf" class="wrap__input">
                    <label for="">CPF</label>
-                   <input formato="cpf"  type="text" name="cpf" >
+                   <input formato="cpf" placeholder="000.000.000-00"  type="text" name="cpf" >
                </div><!--wrap__input-->
 
                <div style="display:none" ref="cnpj" class="wrap__input">
                    <label for="">CNPJ</label>
-                   <input formato="cnpj"  type="text" name="cnpj" >
+                   <input formato="cnpj" placeholder="00.000.000/0000-00" type="text" name="cnpj" >
                </div><!--wrap__input-->
 
                 <div class="wrap__input">

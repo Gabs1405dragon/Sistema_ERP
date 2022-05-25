@@ -105,7 +105,7 @@
                         <div class=""></div>
                         <h4><i class="fa-solid fa-ruler-horizontal"></i> Peso:</h4> <?php echo $value['peso'] ?>cm</p>
                         <div class=""></div>
-                        <h4><i class="fa-solid fa-money-bill"></i> Preço: </h4>R$ <?php echo $value['preco'] ?></p>
+                        <h4><i class="fa-solid fa-money-bill"></i> Preço: </h4>R$ <?php echo $value['preco'] ?>kg</p>
                         <div class=""></div>
                         <form method="post"  class="input__produto">
                             <h5><i class="fa-solid fa-arrow-up-9-1"></i> Quantidade atual:</h5>
@@ -177,7 +177,7 @@
                         <div class=""></div>
                         <h4><i class="fa-solid fa-ruler-horizontal"></i> Comprimento:</h4> <?php echo $value['comprimento'] ?>cm</p>
                         <div class=""></div>
-                        <h4><i class="fa-solid fa-ruler-horizontal"></i> Peso:</h4> <?php echo $value['peso'] ?>cm</p>
+                        <h4><i class="fa-solid fa-ruler-horizontal"></i> Peso:</h4> <?php echo $value['peso'] ?>kg</p>
                         <div class=""></div>
                         <form method="post"  class="input__produto">
                             <h5><i class="fa-solid fa-arrow-up-9-1"></i> Quantidade atual:</h5>

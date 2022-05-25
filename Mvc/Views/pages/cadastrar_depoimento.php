@@ -9,7 +9,7 @@
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <label for="">Depoimento:</label>
-                   <textarea name="depoimento" ></textarea>
+                   <textarea name="depoimento" ><?= \Models\HomeModel::pegarPost('depoimento')?></textarea>
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <label for="">Data</label>

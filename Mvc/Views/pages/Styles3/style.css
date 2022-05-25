@@ -5,6 +5,7 @@
 }
 html,body{
     background-color: rgb(19, 16, 16);
+    overflow-x: hidden;
 }
 .w40{
 width: 40%;
@@ -14,41 +15,56 @@ float: left;
     width: 60%;
     float: left;
 }
+.box__notificacao{
+   padding: 10px;
+   position: relative;
+   top: 14px;
+  display: none;
+    background-color: #0277bd;
+    color: white; 
+}
+
 section.form__login{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 10px;
+    padding:  10px;
     width: 600px;
     background-color: white;
     border-radius: 10px;
+    overflow-y: auto;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.747);
 }
 .wrap__form{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-bottom: 1px solid black;
     padding: 10px;
 }
 .wrap__form input[type=email],.wrap__form [type=text],.wrap__form input[type=password],.wrap__form select{
     width: 100%;
-    padding: 10px;
+    padding: 3px 10px;
     outline: none;
     background-color: rgb(255, 255, 255);
     border: 1px solid black;
     color: rgb(0, 0, 0);
 }
 .voltar{
-    margin-top: 20px;
-    padding: 10px;
+    margin-top: 10px;
+    padding: 5px 10px;
     background-color: rgb(25, 45, 136);
     color: white;
     border-radius: 5px;
-    width: 200px;
-    text-align: center;
+    font-size: 16px;
+    display: inline-block;
+    
+    
 }
 .voltar a{
+    text-decoration: none;
     color: white;
     font-weight: bold;
+    text-align: center;
 }
 .container__form input[type=submit]{
     width: 150px;
@@ -68,17 +84,26 @@ section.form__login{
 .erro{
     background-color: rgb(255, 94, 0) ;
     text-align: center;
-    padding: 10px;
+    padding: 5px 10px;
+    font-size: 16px;
     border-radius: 10px;
-  
+    position: absolute;
+    top: 70px;
+    z-index: 4;
+    left: 800px;
     color: white;
+    border: 1px solid black;
 }
 .success{
     background-color: rgb(21, 255, 0) ;
     text-align: center;
-    padding: 10px;
+    top: 70px;
+    z-index: 4;
+    font-size: 16px;
+    left: 800px;
+    padding: 5px 10px;
     border-radius: 10px;
-  
+    position: absolute;
     color: white;
 }
 .cliente__wraper{
@@ -258,9 +283,28 @@ label{
 }
 .calendario thead{background-color: #0277bd;}
 .calendario td{cursor:pointer;border: 1px solid black;text-align: center;}
-.calendario_active{background-color: antiquewhite;}
-.tarefa__single{padding: 10px;float: left;width: 33.3%;}
-.tarefa{background-color: #096900; color: white;padding:10px;}
+.calendario_active{background-color: rgb(83, 152, 98);transition: 0.7s;color: white;}
+.tarefa__single{padding: 10px;float: left;width: 33.3%;position: relative;}
+.circle__exit{
+    padding: 5px;
+    position: absolute;
+    right: 0;
+    top: -10px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: rgb(190, 36, 36);
+    cursor: pointer;
+}
+.circle__exit a{
+    color: white;
+    text-decoration: none;
+    
+}
+.circle__exit:hover{
+    background-color: red;
+}
+
+.tarefa{background-color: #096900; color: white;padding:10px;position: relative;}
 @media screen and (max-width: 1024px){
     .cliente__wraper{
         width: 100%;
@@ -271,5 +315,10 @@ label{
     .cliente__box .w70{width: 100%;}
     .w40,.w60{
         width: 100%;
+    }
+}
+@media screen and (max-width: 768px){
+    .tarefa__single{
+        width: 50%;
     }
 }

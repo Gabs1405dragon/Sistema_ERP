@@ -3,6 +3,16 @@ namespace Models;
 
 class HomeModel{
 
+    public static function convertMoney($valor){
+        $valor = number_format($valor, 2, ',', ' ');
+        return $valor;
+    }
+
+    public static function cadastrarUsuarios($nome,$email,$senha,$cargo,$imagem){
+        $sql = \MySql::connect()->prepare("INSERT INTO usuarios VALUES (null,?,?,?,?,?)");
+        $sql->execute(array($nome,$email,$senha,$cargo,$imagem));
+    }
+
     public static function imageValida($imagem){
         if($imagem['type'] == 'image/jpeg' && $imagem['type'] == 'image/jpg' && $imagem['type'] == 'image/png'){
             $tamanho = intval($imagem['size']/1024);

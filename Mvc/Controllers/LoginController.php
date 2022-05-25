@@ -15,8 +15,8 @@ class LoginController{
             if(isset($_POST['acao'])){
                 $email = $_POST['login'];
                 $senha = $_POST['senha'];
-                if(empty($email) && empty($senha)){
-                    echo "<div class='erro' >Por Favor Preenchar todos os Campos!</div>";
+                if(empty($email) || empty($senha)){
+                    echo "<div class='erro'>Por Favor Preenchar todos os Campos!</div>";
                 }else{
                     \Models\LoginModel::logar($email,$senha);
                     

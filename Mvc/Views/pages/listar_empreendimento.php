@@ -84,6 +84,8 @@
                         <div class=""></div>
                         <h4><i class="fa-solid fa-envelope"></i> Tipo:</h4><p><?php echo $value['tipo'] ?></p>
                         <div class=""></div>
+                        <h4><i class="fa-solid fa-envelope"></i> Preço:</h4><p><?php echo \Models\HomeModel::convertMoney($value['preco'])  ?></p>
+                        <div class=""></div>
                         
                         <a class="box__crud orange " style="color: white;" href="listar_empreendimento?delete=<?php echo $value['id']; ?>"><i class="fa-solid fa-bomb"></i> Excluir</a>
                         <a class="box__crud blue "  style="color: white;" href="visualizar_empreendimento?id=<?php echo $value['id']; ?>"><i class="fa-solid fa-eye"></i> Visualizar</a>

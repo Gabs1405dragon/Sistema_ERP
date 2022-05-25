@@ -11,13 +11,13 @@ class Cadastrar_empreendimentoController{
             if(isset($_POST['cadastrar_empreendimento'])){
                 $nome = $_POST['nome_empreendimento'];
                 $tipo = $_POST['tipo_empreendimento'];
-                $preco = $_POST['preco'];
+                $preco = \Models\HomeModel::formatarMoedaBd($_POST['preco']);
                 $imagem = $_FILES['image'];
                 $novoArquivo = explode('.',$imagem['name']);
                 $sucesso = true;
                 
 
-                if($novoArquivo[sizeof($novoArquivo)-1] != 'jpg' && $novoArquivo[sizeof($novoArquivo)-1] != 'png' && $novoArquivo[sizeof($novoArquivo)-1] != 'gif'){
+                if($novoArquivo[sizeof($novoArquivo)-1] != 'jpg' && $novoArquivo[sizeof($novoArquivo)-1] != 'png' && $novoArquivo[sizeof($novoArquivo)-1] != 'jpeg'){
                     $sucesso = false;
                     echo '<div class="erro">Voce não pode fazer upload deste tipo de arquivo!</div>';
                     
@@ -32,8 +32,9 @@ class Cadastrar_empreendimentoController{
                     if(empty($nome) || empty($tipo) || empty($preco) ){
                         echo '<div class="erro" >Você não pode deixar os campos vazios!</div>';
                     }else{
-                        $sql = \MySql::connect()->prepare("INSERT INTO `empreendimento` VALUES (null,?,?,?,?,?)");
-                        $sql->execute(array($nome,$tipo,$preco,$imagem['name'],0));
+                        $slug = \Models\HomeModel::generateSlug($nome);
+                        $sql = \MySql::connect()->prepare("INSERT INTO `empreendimento` VALUES (null,?,?,?,?,?,?)");
+                        $sql->execute(array($nome,$tipo,$preco,$imagem['name'],$slug,0));
                         $lastId = \MySql::connect()->lastInsertId();
                         \MySql::connect()->exec("UPDATE `empreendimento` SET order_id = $lastId WHERE id = $lastId ");
                         echo '<div class="success" >O cadastro foi feito com sucesso!</div>';

@@ -9,11 +9,9 @@ include('../../../Models/HomeModel.php');
 $homeModels = new HomeModel();
 
 if(isset($_SESSION['login'])){
-   
-
+    
     sleep(2);
     $data['success'] = true;
-
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];

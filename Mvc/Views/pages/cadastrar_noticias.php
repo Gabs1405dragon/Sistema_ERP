@@ -17,12 +17,12 @@
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <label for="">Titulo da sua notícia:</label>
-                   <input type="text" name="titulo">
+                   <input value="<?= \Models\HomeModel::pegarPost('titulo')?>" type="text" name="titulo">
                </div><!--wrap__input-->
 
                <div class="wrap__input">
                    <label for="">Notícia completa!:</label>
-                   <textarea class="tinymce" name="noticia"></textarea>
+                   <textarea  class="tinymce" name="noticia"><?= \Models\HomeModel::pegarPost('noticia')?></textarea>
                </div><!--wrap__input-->
 
                <div class="wrap__input">

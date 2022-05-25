@@ -17,7 +17,7 @@ class Cadastrar_noticiasController{
                 $slug = $_POST['slug'];
                 $data = $_POST['data'];
                
-                if(empty($titulo) && empty($noticia) && empty($data)){
+                if(empty($titulo) || empty($noticia) || empty($data)){
                     echo '<div class="erro" >preencha todos os campos para a noticia está completa!</div>';
                 }else{
                    

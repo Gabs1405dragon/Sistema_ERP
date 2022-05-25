@@ -29,7 +29,7 @@ if(isset($_GET['deletarImagem'])){
 }
 
         ?>
-     <div class="card__title"><h2><i class="fa-solid fa-people-carry-box"></i> <a href="listar_empreendimento" >Visualizar todos os produtos!</a> > Editar o produto!</h2></div> 
+     <div class="card__title"><h2><i class="fa-solid fa-people-carry-box"></i> <a href="listar_empreendimento" >Visualizar todos Empreendimentos!</a> > Editar o imovel!</h2></div> 
      
 
 
@@ -64,7 +64,7 @@ foreach($imovel as $value){
                <?php } ?>
            </form> 
 
-           <div class="card__title"><h2><i class="fa-solid fa-people-carry-box"></i> Imagem do Produto</h2></div> 
+           <div class="card__title"><h2><i class="fa-solid fa-people-carry-box"></i> Imagem do imóvel</h2></div> 
    <?php 
     $pegaImagens = \MySql::connect()->prepare("SELECT * FROM `imoveis_imagens` WHERE id = $id");
     $pegaImagens->execute();

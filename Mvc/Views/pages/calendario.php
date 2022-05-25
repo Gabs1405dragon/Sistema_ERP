@@ -80,9 +80,9 @@ $nomeMes = $meses[(int)$mes-1];
            <?php  
            if(isset($_POST['adicionar_tarefa'])){
                $tarefa = $_POST['tarefa'];
-               $data = $_POST['data'];
+               $data = $_POST['data_dia'];
                if(empty($tarefa) || empty($data)){
-                    echo 'preenchar os campos';
+                    echo '<div class="erro">preenchar os campos</div>';
                }else{
                     $sql = \MySql::connect()->prepare("INSERT INTO agenda VALUES (null,?,?)");
                     $sql->execute(array($tarefa,$data));
@@ -91,6 +91,12 @@ $nomeMes = $meses[(int)$mes-1];
                     ob_get_clean();
                }
            }
+           if(isset($_GET['tarefa_finalizada'])){
+            $agendaId = $_GET['tarefa_finalizada'];
+            $excluir = \MySql::connect()->prepare("DELETE FROM agenda WHERE id = $agendaId");
+            $excluir->execute();
+            echo '<div class="success">Agenda finalizada no dia '.date('d/m/Y').'!!!</div>';
+           }
            ?>
            <form method="post" >
                <h3 class="card" >Adicionar tarefas</h3>
@@ -98,7 +104,7 @@ $nomeMes = $meses[(int)$mes-1];
                    <input type="text" name="tarefa" placeholder="O que fazer??" >
                </div>
                <div class="wrap__input">
-                   <input formato="data" type="text" name="data" placeholder="00/00/0000"  >
+                   <input formato="data" type="text" name="data_dia"  value="<?= date('d/m/Y')?>" placeholder="00/00/0000"  >
                </div>
                <div class="wrap__input">
                    <input type="submit" name="adicionar_tarefa" value="Cadastrar" >
@@ -114,6 +120,7 @@ $nomeMes = $meses[(int)$mes-1];
            foreach($agendas as $agenda){ ?>
              <div class="tarefa__single">
                  <div class="tarefa">
+                     <div class="circle__exit"><a href="calendario?tarefa_finalizada=<?= $agenda['id']?>">X</a></div>
                      <p><i class="fa-solid fa-pen"></i>  <?php echo $agenda['tarefa']; ?></p>
                      <p><i class="fa-solid fa-calendar-days"></i> <?php echo $agenda['data'] ?></p>
                  </div>
@@ -124,3 +131,7 @@ $nomeMes = $meses[(int)$mes-1];
     </div><!--box__wrap-->
     
 </section><!--painel__right-->
+
+<script>
+
+</script>

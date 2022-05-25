@@ -42,12 +42,51 @@ $clientes = $sql->fetch();
 
                 <div class="wrap__input">
                    <label for="">imagem:</label>
-                   <input type="file" name="imagem" >
+                   <input type="file" name="imagem" value="<?= $clientes['imagem']; ?>" >
                </div><!--wrap__input-->
                <div class="wrap__input">
                   
                    <input type="submit" name="alterar_cliente" value="Atualizar!" >
                </div><!--wrap__input-->
+               <?php 
+               if(isset($_POST['alterar_cliente'])){
+                
+                $nome = $_POST['nome'];
+                $email = $_POST['email'];
+                $tipo = $_POST['pessoa_cliente'];
+                $cpf = '';
+                $cnpj = '';
+                if($tipo == 'fisico'){
+                    $cpf = $_POST['cpf'];
+                }else if($tipo == 'juridico'){
+                    $cnpj = $_POST['cnpj'];
+                };
+                $imagem = $_FILES['imagem'];
+                $success = true;
+                $arquivo = explode('.',$imagem['name']);
+
+                if($arquivo[sizeof($arquivo)-1] != 'jpg' && $arquivo[sizeof($arquivo)-1] != 'png' && $arquivo[sizeof($arquivo)-1] != 'jpeg'){
+                    echo  'Essa imagem é ivalida..';
+                    $success = false;
+                }
+
+                if($success == true){
+
+                   if(empty($nome) || empty($email) || empty($tipo) || empty($imagem)){
+                            echo "não é permitido enviar campos vazios";
+                    }else{
+                        // @unlink(BASE_DIR_PAINEL.'uploads/'.$imagem['name']);
+                        move_uploaded_file($imagem['tmp_name'],BASE_DIR_PAINEL.'uploads/'.$imagem['name']);
+                            $sql = \MySql::connect()->prepare("UPDATE `clientes` SET  nome = ?,email = ?,tipo = ?,cpf_cnpj = ?,imagem = ? WHERE id = $id ");
+                            $dadoFinal = ($cpf == '') ? $cnpj : $cpf;
+                            $sql->execute(array($nome,$email,$tipo,$dadoFinal,$imagem['name']));
+                            echo '<script>alert("atualizado com sucesso!!");location.href="edit_cliente?id='.$id.'"</script>';
+                    }  
+
+                }
+                   
+               }
+               ?>
            </form> 
         </div><!--box__content-->
 
@@ -193,7 +232,7 @@ $clientes = $sql->fetch();
                     <tr  >
                        <td><?php echo $value['nome']; ?></td>
                        <td><?php echo $clienteNome; ?></td>
-                       <td><?php echo $value['valor']; ?></td>
+                       <td><?php echo 'R$'.$value['valor']; ?></td>
                        <td><?php echo date('d-m-Y',strtotime($value['vencimento'])); ?></td>
                      
                    </tr>

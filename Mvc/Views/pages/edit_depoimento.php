@@ -25,7 +25,7 @@ $depoimento = $sql->fetch();
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <label for="">Data</label>
-                   <input formato="data" type="text" name="date" value="<?php echo $depoimento['date'] ?>" >
+                   <input formato="data" type="text" name="date" value="<?= $depoimento['data']; ?>" >
                </div><!--wrap__input-->
                <div class="wrap__input">
                    <input type="hidden" name="order_id" value="0" >
